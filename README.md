@@ -27,7 +27,7 @@ Memory users will use either (or both) of the lower or upper RAM domains:
 
 # Program instructions
 
-Each instruction will be 16 bits and interpreted by the control unit. The first 3 bits (0 - 3) of the instruction will address the below list of operations. The rest of the instruction (bits 4 - 15) may be ignored or used for different things depending on the specific operation.
+Each instruction will be 16 bits and interpreted by the control unit. The first 4 bits (0 - 3) of the instruction will address the below list of operations. The rest of the instruction (bits 4 - 15) may be ignored or used for different things depending on the specific operation.
 
 Here's the current list of the operation codes (opcodes):
 
@@ -111,7 +111,7 @@ Devices that can write to the bus (TX):
 
 # The Stack
 
-The stack will simply be a piece of memory seperate from the pGPRAM and managed by hardware, its has 32k x 8-bit words.
+The stack will simply be a piece of memory seperate from the GPRAM and managed by hardware, its has 32k x 8-bit words.
 
 There will be two ways to access the stack:
 
@@ -172,3 +172,9 @@ The display has 32 x 32 LEDs, any given row of 8 pixels are written all at once 
 This piece of memory does not have any hardware protection like the stack and can be writen to and read from at any location. It will have a 16-bit address by 8-bit word size (65,536 bytes) just like the stack.
 
 Its address can be optionally incremented upon reads/writes and can be directly set from the bus (`GPRAM-ADDR-A` and `GPRAM-ADDR-B`). For the instructions where the address is incremented, that will happen after the read/write.
+
+# Design software
+
+First, everything was built and tested in a digital circuit simulator [Rusty Logic](https://github.com/HDrizzle/rusty_logic_core) which allowed my to check that all the timing diagrams would be followed.
+
+Once everything was working in Rusty Logic, KiCad was used to layout all of the actual PCBs.
