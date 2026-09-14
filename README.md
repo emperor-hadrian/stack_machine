@@ -175,6 +175,6 @@ Its address can be optionally incremented upon reads/writes and can be directly 
 
 # Design software
 
-First, everything was built and tested in a digital circuit simulator [Rusty Logic](https://github.com/HDrizzle/rusty_logic_core) which allowed my to check that all the timing diagrams would be followed.
+First, everything was built and tested in a digital circuit simulator [Rusty Logic](https://github.com/emperor-hadrian/rusty_logic_core) which allowed my to check that all the timing diagrams would be followed.
 
 Once everything was working in Rusty Logic, KiCad was used to layout all of the actual PCBs.
